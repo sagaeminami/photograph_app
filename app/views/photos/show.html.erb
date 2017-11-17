@@ -1,0 +1,17 @@
+div class="container">
+  <div class="row">
+    <div class="back_panel col-xs-12 col-md-4 col-md-offset-4 form-content">
+      <h1>投稿詳細</h1>
+      <p>Title: <%=@photo.title%></p>
+      <p>Contents: <%=@photo.content%></p>
+      <%= image_tag @photo.image %><br>
+      <% unless @photo.user == current_user %>
+        <% if @favorite.present? %>
+          <%= link_to 'お気に入り解除する', favorite_path(photo_id: @photo.id), method: :delete, class: 'btn btn-danger' %>
+        <% else %>
+          <%= link_to 'お気に入りする', favorites_path(photo_id: @photo.id), method: :post, class: 'btn btn-prymary' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

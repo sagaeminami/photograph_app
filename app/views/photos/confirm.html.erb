@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+      <h4>以下の内容で、送信する。</h4>
+
+      <%= form_for(@photo) do |f| %>
+      <%= f.hidden_field :title %>
+      <%= f.hidden_field :content %>
+      <%= hidden_field_tag :"cache[image]",@photo.image.cache_name %>
+
+
+      <p>タイトル:<%= @photo.title %></p>
+      <p>内容:<%= @photo.content %></p>
+      <%= image_tag(@photo.image.url) if (@photo.image.url) %>
+      <%= f.submit"投稿する", class:'btn btn-primary btn-block'%>
+      <% end %>
+
+      <%= form_for(@photo,url: new_photo_path,method:'get') do |f| %>
+      <%= f.hidden_field :title %>
+      <%= f.hidden_field :content %>
+      <%= f.submit "戻る", name:'back', class:'btn btn-default btn-block' %>
+      <% end %>
+
+  </div>
+</div>
