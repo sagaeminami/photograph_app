@@ -6,9 +6,9 @@
       <h1>💛<%= photo.content %></h1>
       <p><%= photo.created_at %></p>
       <p><%= photo.user.name %></p>
-      <div class="content_img">
+
         <%= image_tag(photo.image, class: "content_img")  %>
-      </div>
+      
       </div>
     <% end %>
   </article>
