@@ -35,7 +35,7 @@ class PhotosController < ApplicationController
     @photo.user_id = current_user.id
     @photo.image.retrieve_from_cache!(params[:cache][:image]) unless (params[:cache][:image]).empty?
       if @photo.save
-        PhotoMailer.photo_mail(@photo).deliver  ##追記
+        PhotoMailer.photo_mail(@photo).deliver
         redirect_to photos_path, notice:"ツイートしました！"
       else
         render 'new'

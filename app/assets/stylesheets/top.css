@@ -11,6 +11,15 @@ header {
   box-shadow:5px 5px 10px;
 }
 
+.bg-primary{
+  background-color: #DCDCDC;
+  color:#000000;
+}
+
+.navbar-defult{
+  background-color: #fff;
+}
+
 header ul {
   padding-top: 5px;
   margin: 0 auto;
@@ -50,6 +59,10 @@ footer {
   bottom: 0;
 }
 
+
+footer p {
+  color:#000000;
+}
 html {
   position: relative;
   min-height: 100%;
@@ -68,5 +81,14 @@ body {
 .top{
   padding-top:20px;
   font-size: 30px
+
+}
+
+.header_label{
+  padding-top:20px;
+  text-align: center;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 35px
 
 }

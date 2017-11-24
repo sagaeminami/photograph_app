@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       post 'confirm'
     end
   end
-  resources :favoirites,only: [:create,:destroy]
+  resources :favorites,only: [:create,:destroy]
   resources :sessions, only: [:new,:create, :destroy]
   resources :users
 

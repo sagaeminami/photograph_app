@@ -1,7 +1,12 @@
-<h1><%= @user.name %>のページ</h1>
+<div class="container">
+  <article class-"tweet row">
 
-<p>メールアドレス: <%= @user.email %></p>
-<%= form_for(@user) do |f| %>
-<%= image_tag @user.image%><br>
-<p><%=link_to 'プロフィールを編集する', edit_user_path%>
-<%end%>
+    <h1><%= @user.name %>のページ</h1>
+
+    <p>メールアドレス: <%= @user.email %></p>
+    <%= form_for(@user) do |f| %>
+    <%= image_tag @user.image%><br>
+    <p><%=link_to 'プロフィールを編集する', edit_user_path%>
+    <%end%>
+  </article>
+</div>

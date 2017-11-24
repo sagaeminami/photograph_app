@@ -1,0 +1,15 @@
+<div class="container">
+  <article class-"tweet row">
+
+    <% @favorite_photos.each do |photo| %>
+      <div class="favorite-panel col-xs-12 col-md-4 col-md-offset-4">
+      <h1>💛<%= photo.content %></h1>
+      <p><%= photo.created_at %></p>
+      <p><%= photo.user.name %></p>
+      <div class="content_img">
+        <%= image_tag(photo.image, class: "content_img")  %>
+      </div>
+      </div>
+    <% end %>
+  </article>
+</div>

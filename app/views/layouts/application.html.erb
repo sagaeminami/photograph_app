@@ -11,9 +11,7 @@
   <body>
     <header class="bg-primary ">
     <% if logged_in? %>
-      <ul>
-        <li><%= link_to '#トップページ', photos_path %></li>
-      </ul>
+      <div class="header_label">Photo_app</div>
     <% else %>
       <div class="top">ログインしてください</div>
     <% end %>
@@ -22,7 +20,7 @@
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
     <nav class="navbar navbar-default">
-  　<div class="container-fluid">
+    <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
         <span class="sr-only"></span>
@@ -35,11 +33,11 @@
     <div id="gnavi" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <% if logged_in? %>
-          <li><%= link_to '投稿一覧📖', photos_path,class: 'btn btn-default'%></li>
-          <li><%= link_to 'お気に入り一覧⭐️', favorite_photos_path,class: 'btn btn-default'%></li>
-          <li><%= link_to '投稿🖋', new_photo_path,class: 'btn btn-default' %></li>
-          <li><%= link_to "プロフィール😃", user_path(current_user.id),class: 'btn btn-default'%></li>
-          <li><%= link_to "ログアウト🚪",session_path(current_user.id), method: :delete,class: 'btn btn-default' %></li>
+          <li><%= link_to '🏠', photos_path,class: 'btn btn-default'%></li>
+          <li><%= link_to '💛', favorite_photos_path,class: 'btn btn-default'%></li>
+          <li><%= link_to '📷', new_photo_path,class: 'btn btn-default' %></li>
+          <li><%= link_to "👤", user_path(current_user.id),class: 'btn btn-default'%></li>
+          <li><%= link_to "💤",session_path(current_user.id), method: :delete,class: 'btn btn-default' %></li>
         <% else %>
           <li><%=link_to "登録📄", new_user_path,class: 'btn btn-default' %></li>
           <li><%=link_to "ログイン🔑", new_session_path ,class: 'btn btn-default'%></li>

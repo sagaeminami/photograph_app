@@ -18,5 +18,5 @@
 
 .byebug_history
 
-#dotenv-rails ##追記
-.env ## 追記
+#dotenv-rails 
+.env

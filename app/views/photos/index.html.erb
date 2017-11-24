@@ -1,21 +1,26 @@
 <div class="container">
-  <article class-"tweet row">
+  <article class="row">
 
       <% @photos.each do |photo| %>
         <div class-"photo-panel col-xs-12 col-md-4 col-md-offset-4">
           <div class="title_content_deco">
-              <h2>タイトル:<%= photo.title %></h2>
-              <h3>内容:<%= photo.content %></h3>
-              <%= image_tag(photo.image) %>
-              <p><%= photo.created_at %></p>
+            <div class="content_img">
+              <%= image_tag(photo.image, class: "content_img")  %>
+            </div>
+            <div class="content">
               <p><%= photo.user.name %></p>
+              <h3><%= photo.title %></h3>
+              <h4><%= photo.content %></h4>
+                <div class="content_in">
                         <% if photo.user_id == current_user.id %>
-                          <%= link_to 'Show', photo_path(photo.id)  %> |
-                          <%= link_to 'Edit', edit_photo_path(photo.id)%> |
-                          <%= link_to 'Destroy', photo_path(photo.id),method: :delete, data: { confirm: 'Are you sure?' }%>
+                          <%= link_to '🔍', photo_path(photo.id)  %> |
+                          <%= link_to '✂️', edit_photo_path(photo.id)%> |
+                          <%= link_to '🗑', photo_path(photo.id),method: :delete, data: { confirm: 'Are you sure?' }%>
                         <% else %>
-                          <%= link_to 'Show', photo_path(photo.id)  %>
+                          <%= link_to '🔍', photo_path(photo.id)  %>
                         <% end %>
+                </div>
+              </div>
             </div>
         </div>
      <% end %>

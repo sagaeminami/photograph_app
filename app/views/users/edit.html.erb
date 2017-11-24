@@ -1,19 +1,23 @@
-<%= form_for (@user) do |f| %>
+<div class="container">
+  <article class="row">
+    <%= form_for (@user) do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
+      <%= f.label :name %>
+      <%= f.text_field :name %><br>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %><br>
+      <%= f.label :email %>
+      <%= f.email_field :email %><br>
 
-  <div class="field_image">
-  <%= f.label :"写真" %>
-  <%= f.file_field :image %>
-  <%= f.hidden_field :image_cache %>
-  </div>
+      <div class="field_image">
+      <%= f.label :"写真" %>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+      </div>
 
 
-  <div class="actions">
-    <%=f.submit 'next!' %>
-  </div>
-<% end %>
+      <div class="actions">
+        <%=f.submit 'next!' %>
+      </div>
+    <% end %>
+  </article>
+</div>
