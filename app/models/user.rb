@@ -1,7 +1,4 @@
 class User < ApplicationRecord
-  has_many :photos
-  has_many :favorites, dependent: :destroy
-  has_many :favorite_photos, through: :favorites, source: :photo
   mount_uploader :image, ImageUploader
   validates :name,presence:true,length:{ maximum: 30}
   validates :email,presence:true,length:{ maximum: 255},
