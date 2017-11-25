@@ -7,7 +7,11 @@ class PhotosController < ApplicationController
   end
 
   def new
-    @photo = Photo.new
+    if params[:back]
+      @photo = Photo.new(photo_params)
+    else
+      @photo = Photo.new
+    end
   end
 
   def show
@@ -19,6 +23,8 @@ class PhotosController < ApplicationController
 
   def confirm
     @photo = Photo.new(photo_params)
+    @photo.user_id = current_user.id
+    render 'new' if @photo.invalid?
   end
 
 
@@ -34,12 +40,12 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.user_id = current_user.id
     @photo.image.retrieve_from_cache!(params[:cache][:image]) unless (params[:cache][:image]).empty?
-      if @photo.save
-        PhotoMailer.photo_mail(@photo).deliver
-        redirect_to photos_path, notice:"ツイートしました！"
-      else
-        render 'new'
-      end
+    if @photo.save
+      PhotoMailer.photo_mail(@photo).deliver
+      redirect_to photos_path, notice:"ツイートしました！"
+    else
+      render 'new'
+    end
   end
 
   def destroy
@@ -65,6 +71,6 @@ class PhotosController < ApplicationController
 
   private
   def photo_params
-    params.require(:photo).permit(:title,:content,:image)
+    params.require(:photo).permit(:title,:content,:image,:image_cache)
   end
 end
